@@ -15,7 +15,7 @@ export async function POST(request) {
     }
 
     // Create transporter using Gmail SMTP
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       host: 'smtp.gmail.com',
       port: 587,
