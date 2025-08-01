@@ -15,12 +15,18 @@ export async function POST(request) {
     }
 
     // Create transporter using Gmail SMTP
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.GMAIL_USER, // Your Gmail address
         pass: process.env.GMAIL_APP_PASSWORD, // Your Gmail App Password
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     });
 
     // Email content for you (the recipient)
@@ -115,7 +121,7 @@ export async function POST(request) {
 
           <p style="color: #555; line-height: 1.6; margin: 20px 0;">
             In the meantime, feel free to check out my <a href="${process.env.NEXT_PUBLIC_SITE_URL}/projects" style="color: #667eea; text-decoration: none;">recent projects</a> 
-            or connect with me on <a href="https://www.linkedin.com/in/the-extremez//in/yourprofile" style="color: #667eea; text-decoration: none;">LinkedIn</a>.
+            or connect with me on <a href="https://www.linkedin.com/in/the-extremez/" style="color: #667eea; text-decoration: none;">LinkedIn</a>.
           </p>
 
           <div style="text-align: center; margin: 30px 0;">
@@ -144,26 +150,44 @@ export async function POST(request) {
     `;
 
     // Send email to you (admin)
-    await transporter.sendMail({
-      from: `"Portfolio Contact Form" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
-      subject: `🚀 New Project Inquiry: ${subject}`,
-      html: adminEmailContent,
-      replyTo: email,
-    });
+    let adminEmailResult, userEmailResult;
+    
+    try {
+      adminEmailResult = await transporter.sendMail({
+        from: `"Portfolio Contact Form" <${process.env.GMAIL_USER}>`,
+        to: process.env.GMAIL_USER,
+        subject: `🚀 New Project Inquiry: ${subject}`,
+        html: adminEmailContent,
+        replyTo: email,
+      });
+      console.log('Admin email sent successfully:', adminEmailResult.messageId);
+    } catch (adminError) {
+      console.error('Failed to send admin email:', adminError);
+      throw new Error(`Admin email failed: ${adminError.message}`);
+    }
 
     // Send auto-reply to user
-    await transporter.sendMail({
-      from: `"Vinay Kumar" <${process.env.GMAIL_USER}>`,
-      to: email,
-      subject: `Thank you for your message - I'll respond within 24 hours!`,
-      html: userEmailContent,
-    });
+    try {
+      userEmailResult = await transporter.sendMail({
+        from: `"Vinay Kumar" <${process.env.GMAIL_USER}>`,
+        to: email,
+        subject: `Thank you for your message - I'll respond within 24 hours!`,
+        html: userEmailContent,
+      });
+      console.log('User email sent successfully:', userEmailResult.messageId);
+    } catch (userError) {
+      console.error('Failed to send user email:', userError);
+      // Don't throw error here - admin email already sent
+      console.warn('User email failed but admin email was sent successfully');
+    }
 
     return NextResponse.json(
       { 
-        message: 'Emails sent successfully',
-        success: true 
+        message: userEmailResult ? 'Both emails sent successfully' : 'Admin email sent, user email failed',
+        success: true,
+        adminEmailId: adminEmailResult.messageId,
+        userEmailId: userEmailResult?.messageId || null,
+        userEmailFailed: !userEmailResult
       },
       { status: 200 }
     );
