@@ -754,3 +754,33 @@ body.start-animations .animate-fade-in-right {
     backface-visibility: hidden;
   }
 }
+
+/* Loading Animation Styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Loading Progress Animation */
+@keyframes loading-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-loading-progress {
+  animation: loading-progress 2s ease-in-out;
+}

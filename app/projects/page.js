@@ -22,44 +22,228 @@ export default function ProjectsPage() {
   const [floatingParticles, setFloatingParticles] = useState([]);
 
   // Project data with multiple categories and features
-  const projects = useMemo(() => [
-    {
-      id: 1,
-      title: "Makeover Cosmetics - Luxury E-Commerce",
-      category: "fullstack",
-      tags: ["Odoo", "E-Commerce", "Luxury Brand", "Cosmetics", "Perfumes"],
-      description:
-        "A premium luxury cosmetics and perfume e-commerce platform featuring branded makeup items, fragrances, and beauty products with sophisticated design and seamless shopping experience.",
-      longDescription:
-        "Developed and launched Makeover Cosmetics, a high-end luxury e-commerce platform specializing in premium cosmetics, branded perfumes, and beauty products. The platform features an elegant design that reflects the luxury brand identity, comprehensive product catalog with detailed descriptions, secure payment processing, inventory management, and customer account features. Built to provide a premium shopping experience for discerning customers seeking quality beauty products.",
-      images: [
-        "/assets/MOC1.png",
-      ],
-      liveUrl: "https://makeovercosmetics.odoo.com/",
-      githubUrl: null, // Private/Commercial project
-      features: [
-        "Luxury Brand Design",
-        "Product Catalog",
-        "Secure Payments",
-        "Inventory Management",
-        "Customer Accounts",
-        "Mobile Responsive",
-        "SEO Optimized",
-      ],
-      technologies: [
-        "Odoo",
-        "Python",
-        "PostgreSQL",
-        "JavaScript",
-        "CSS3",
-        "HTML5",
-      ],
-      status: "live",
-      duration: "2 months",
-      role: "Full Stack Developer & Designer",
-      teamSize: "Solo Project",
-    },
-  ], []);
+  const projects = useMemo(
+    () => [
+      {
+        id: 1,
+        title: "Makeover Cosmetics - Luxury E-Commerce",
+        category: "fullstack",
+        tags: ["Odoo", "E-Commerce", "Luxury Brand", "Cosmetics", "Perfumes"],
+        description:
+          "A premium luxury cosmetics and perfume e-commerce platform featuring branded makeup items, fragrances, and beauty products with sophisticated design and seamless shopping experience.",
+        longDescription:
+          "Developed and launched Makeover Cosmetics, a high-end luxury e-commerce platform specializing in premium cosmetics, branded perfumes, and beauty products. The platform features an elegant design that reflects the luxury brand identity, comprehensive product catalog with detailed descriptions, secure payment processing, inventory management, and customer account features. Built to provide a premium shopping experience for discerning customers seeking quality beauty products.",
+        images: ["/assets/MOC1.png"],
+        liveUrl: "https://makeovercosmetics.odoo.com/",
+        githubUrl: null, // Private/Commercial project
+        features: [
+          "Luxury Brand Design",
+          "Product Catalog",
+          "Secure Payments",
+          "Inventory Management",
+          "Customer Accounts",
+          "Mobile Responsive",
+          "SEO Optimized",
+        ],
+        technologies: [
+          "Odoo",
+          "Python",
+          "PostgreSQL",
+          "JavaScript",
+          "CSS3",
+          "HTML5",
+        ],
+        status: "live",
+        duration: "2 months",
+        role: "Full Stack Developer & Designer",
+        teamSize: "Solo Project",
+      },
+      {
+        id: 2,
+        title: "Bhupender Kumar's Portfolio",
+        category: "fullstack",
+        tags: ["Next.js", "React", "Portfolio", "Responsive", "Modern Design"],
+        description:
+          "A modern and professional portfolio website built with Next.js for Bhupender Kumar, showcasing his skills, projects, and experience as a freelancer.",
+        longDescription:
+          "Developed a sleek and professional portfolio website for Bhupender Kumar using Next.js and React. The portfolio features a modern design with smooth animations, responsive layout, project showcase, skills section, and contact information. The website is optimized for performance and SEO, providing an excellent user experience across all devices. It effectively presents Bhupender's freelance services and professional background.",
+        images: ["/assets/MOC2.png"],
+        liveUrl: "https://freelancerbk.vercel.app/",
+        githubUrl: null, // Client project
+        features: [
+          "Modern Portfolio Design",
+          "Responsive Layout",
+          "Smooth Animations",
+          "Project Showcase",
+          "Skills Section",
+          "Contact Form",
+          "SEO Optimized",
+          "Fast Loading",
+        ],
+        technologies: [
+          "Next.js",
+          "React",
+          "JavaScript",
+          "CSS3",
+          "HTML5",
+          "Vercel",
+        ],
+        status: "live",
+        duration: "3 weeks",
+        role: "Full Stack Developer & Designer",
+        teamSize: "Solo Project",
+      },
+      {
+        id: 3,
+        title: "Extremez - Personal Portfolio",
+        category: "frontend",
+        tags: [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Portfolio",
+          "Responsive",
+          "Vanilla JS",
+        ],
+        description:
+          "My original personal portfolio website built with vanilla HTML, CSS, and JavaScript, showcasing my early web development skills and projects.",
+        longDescription:
+          "Extremez represents my first professional portfolio website, built entirely with vanilla HTML, CSS, and JavaScript. This project demonstrates fundamental web development skills including responsive design, interactive elements, smooth scrolling, and modern UI/UX principles. The website features a clean and professional design with sections for about, skills, projects, and contact information. It serves as a testament to my journey in web development and showcases the evolution of my coding skills.",
+        images: [
+          "/assets/MOC3.png", // Using existing image as placeholder
+        ],
+        liveUrl: "https://extremez.vercel.app/",
+        githubUrl: null, // Personal project
+        features: [
+          "Vanilla JavaScript",
+          "Responsive Design",
+          "Smooth Scrolling",
+          "Interactive Elements",
+          "Modern UI/UX",
+          "Clean Code",
+          "Cross-browser Compatible",
+          "Mobile Optimized",
+        ],
+        technologies: [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Responsive Design",
+          "Vercel",
+        ],
+        status: "live",
+        duration: "1 month",
+        role: "Frontend Developer & Designer",
+        teamSize: "Solo Project",
+      },
+      {
+        id: 4,
+        title: "AIO - All-in-One Platform",
+        category: "fullstack",
+        tags: ["Next.js", "React", "All-in-One", "Dashboard", "Modern UI"],
+        description:
+          "A comprehensive all-in-one platform built with Next.js, featuring multiple integrated tools and services in a unified dashboard interface.",
+        longDescription:
+          "AIO (All-in-One) is a comprehensive platform that integrates multiple tools and services into a single, cohesive dashboard. Built with Next.js and React, this project demonstrates advanced frontend development skills with modern UI/UX design principles. The platform features a clean, intuitive interface that allows users to access various tools and functionalities from one central location, improving productivity and user experience.",
+        images: ["/assets/MOC4.png"],
+        liveUrl: "https://aio-iota.vercel.app/",
+        githubUrl: null,
+        features: [
+          "Unified Dashboard",
+          "Multiple Tool Integration",
+          "Modern UI/UX",
+          "Responsive Design",
+          "Fast Performance",
+          "User-friendly Interface",
+          "Clean Code Architecture",
+          "Scalable Design",
+        ],
+        technologies: [
+          "Next.js",
+          "React",
+          "JavaScript",
+          "CSS3",
+          "HTML5",
+          "Vercel",
+        ],
+        status: "live",
+        duration: "6 weeks",
+        role: "Full Stack Developer & Designer",
+        teamSize: "Solo Project",
+      },
+      {
+        id: 5,
+        title: "Discord Bot Website",
+        category: "frontend",
+        tags: ["Discord", "Bot", "Landing Page", "Interactive", "Gaming"],
+        description:
+          "A modern and interactive landing page for a Discord bot, featuring engaging animations, bot features showcase, and integration guides.",
+        longDescription:
+          "Developed a captivating landing page for a Discord bot service, designed to attract and inform users about the bot's capabilities. The website features modern animations, interactive elements, comprehensive feature descriptions, setup guides, and user testimonials. Built with a gaming-focused aesthetic to appeal to the Discord community, the site effectively communicates the bot's value proposition and encourages user adoption.",
+        images: ["/assets/MOC5.png"],
+        liveUrl: "https://discord-bot-website-peach.vercel.app/",
+        githubUrl: null,
+        features: [
+          "Interactive Landing Page",
+          "Bot Features Showcase",
+          "Setup Instructions",
+          "Gaming Aesthetic",
+          "Smooth Animations",
+          "Responsive Design",
+          "Call-to-Action Buttons",
+          "Community Focus",
+        ],
+        technologies: [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Animations",
+          "Responsive Design",
+          "Vercel",
+        ],
+        status: "live",
+        duration: "2 weeks",
+        role: "Frontend Developer & Designer",
+        teamSize: "Solo Project",
+      },
+      {
+        id: 6,
+        title: "PG Details - Accommodation Finder",
+        category: "fullstack",
+        tags: ["Accommodation", "PG", "Search", "Booking", "Real Estate"],
+        description:
+          "A comprehensive platform for finding and booking paying guest accommodations, featuring detailed listings, search filters, and booking management.",
+        longDescription:
+          "PG Details is a specialized platform designed to help students and working professionals find suitable paying guest accommodations. The website features comprehensive property listings with detailed information, advanced search and filtering options, image galleries, contact information, and booking management. Built with user experience in mind, the platform simplifies the process of finding and securing accommodation in various cities.",
+        images: ["/assets/MOC6.png"],
+        liveUrl: "https://pgdetails.vercel.app/",
+        githubUrl: null,
+        features: [
+          "Property Listings",
+          "Advanced Search Filters",
+          "Detailed Property Info",
+          "Image Galleries",
+          "Contact Management",
+          "Location-based Search",
+          "Responsive Design",
+          "User-friendly Interface",
+        ],
+        technologies: [
+          "Next.js",
+          "React",
+          "JavaScript",
+          "CSS3",
+          "HTML5",
+          "Vercel",
+        ],
+        status: "live",
+        duration: "4 weeks",
+        role: "Full Stack Developer & Designer",
+        teamSize: "Solo Project",
+      },
+    ],
+    []
+  );
 
   // Filter categories with counts
   const categories = [
@@ -185,13 +369,7 @@ export default function ProjectsPage() {
     }, observerOptions);
 
     // Observe all sections
-    const sections = [
-      "hero",
-      "filters",
-      "projects",
-      "journey",
-      "cta",
-    ];
+    const sections = ["hero", "filters", "projects", "journey", "cta"];
     sections.forEach((section) => {
       const element = document.getElementById(section);
       if (element) observer.observe(element);
@@ -833,8 +1011,6 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-
-
         {/* CTA Section */}
         <section id="cta" className="py-20 relative z-10">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -891,4 +1067,3 @@ export default function ProjectsPage() {
     </PageWrapper>
   );
 }
-

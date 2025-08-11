@@ -80,7 +80,7 @@ export default function AboutPage() {
       suffix: "",
     },
     {
-      number: "5+",
+      number: "4+",
       label: "Years Experience",
       icon: "⏰",
       color: "text-green-400",

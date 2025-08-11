@@ -3,22 +3,21 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PageWrapper from "../components/PageWrapper";
 import BackgroundEffects from "../components/BackgroundEffects";
-import ServiceModal from "../components/ServiceModal";
 import FloatingActionButton from "../components/FloatingActionButton";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
 import FAQSection from "../components/FAQSection";
 
 export default function ServicesPage() {
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState("all");
   const [hoveredService, setHoveredService] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleServices, setVisibleServices] = useState(new Set());
-  const [selectedService, setSelectedService] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [flippedCards, setFlippedCards] = useState(new Set());
   const observerRef = useRef();
 
@@ -909,14 +908,8 @@ export default function ServicesPage() {
       ? services
       : services.filter((service) => service.category === activeCategory);
 
-  const openModal = (service) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null);
+  const handleContactRedirect = () => {
+    router.push('/contact');
   };
 
   const handleCardClick = (categoryId) => {
@@ -1203,7 +1196,7 @@ export default function ServicesPage() {
                       exit={{ opacity: 0, y: -50 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       className="group cursor-pointer"
-                      onClick={() => openModal(service)}
+                      onClick={handleContactRedirect}
                       onMouseEnter={() => setHoveredService(service.id)}
                       onMouseLeave={() => setHoveredService(null)}
                     >
@@ -1405,12 +1398,6 @@ export default function ServicesPage() {
         <Footer />
         <FloatingActionButton />
 
-        {/* Service Modal */}
-        <ServiceModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          service={selectedService}
-        />
       </div>
     </PageWrapper>
   );
