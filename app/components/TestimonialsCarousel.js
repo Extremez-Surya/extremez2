@@ -38,6 +38,16 @@ export default function TestimonialsCarousel() {
       text: "The visually rich content and print designs have transformed our online presence. Engagement has skyrocketed, and the consistency across platforms is exactly what we needed.",
       service: "Social Media Graphics & Print Design",
     },
+    {
+      id: 4,
+      name: "Rudra Budsar",
+      company: "Student BCAS",
+      role: "Promotion Manager",
+      image: "/assets/RB.png",
+      rating: 5,
+      text: "Their team's dedication to creating impactful social media graphics and print designs was exceptional. They truly understood our vision and delivered results that exceeded expectations, significantly boosting our promotional efforts.",
+      service: "Promotion Manager & Social Media Head"
+    },
   ];
 
   useEffect(() => {
@@ -162,7 +172,9 @@ export default function TestimonialsCarousel() {
                         transition={{ duration: 0.6 }}
                         className="relative"
                       >
-                        <div className="text-6xl text-blue-400/30 mb-4">&ldquo;</div>
+                        <div className="text-6xl text-blue-400/30 mb-4">
+                          &ldquo;
+                        </div>
                         <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-4 italic font-serif drop-shadow-lg">
                           {testimonials[currentIndex].text}
                         </p>
@@ -258,4 +270,3 @@ export default function TestimonialsCarousel() {
     </section>
   );
 }
-
