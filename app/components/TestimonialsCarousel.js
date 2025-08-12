@@ -45,7 +45,7 @@ export default function TestimonialsCarousel() {
       role: "Promotion Manager",
       image: "/assets/RB.png",
       rating: 5,
-      text: "Their team's dedication to creating impactful social media graphics and print designs was exceptional. They truly understood our vision and delivered results that exceeded expectations, significantly boosting our promotional efforts.",
+      text: "As a BCAS student and our Promotion Manager, his commitment to supporting us and spreading the word about our work has been truly commendable. Always ready to help, he consistently goes above and beyond to ensure our events and initiatives get the attention they deserve, making a remarkable difference in our overall reach and impact.",
       service: "Promotion Manager & Social Media Head"
     },
   ];
@@ -270,3 +270,4 @@ export default function TestimonialsCarousel() {
     </section>
   );
 }
+
